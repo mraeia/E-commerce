@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: mraeia/auth
+          image: us.gcr.io/e-commerce-dev-293019/auth
           env:
             - name: JWT_KEY
               valueFrom:

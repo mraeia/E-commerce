@@ -29,8 +29,8 @@ router.post(
     }
 
     const passwordsMatch = await Password.compare(
-      password,
-      existingUser.password
+      existingUser.password,
+      password
     );
 
     if (!passwordsMatch) {
