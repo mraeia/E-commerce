@@ -1,7 +1,6 @@
 import express from "express";
-import jwt from "jsonwebtoken";
 
-import { currentUser } from "../middlewares/current-user";
+import { currentUser } from "@maly-ecom/common";
 
 const router = express.Router();
 

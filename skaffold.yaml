@@ -5,13 +5,27 @@ deploy:
     manifests:
       - ./infra/k8s/*
 build:
-  # local:
-  #   push: false
-  googleCloudBuild:
-    projectId: e-commerce-dev-293019
+  local:
+    push: false
   artifacts:
-    - image: us.gcr.io/e-commerce-dev-293019/auth
+    - image: mraeia/auth
       context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: mraeia/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "**/*.js"
+            dest: .
+    - image: mraeia/products
+      context: products
       docker:
         dockerfile: Dockerfile
       sync:
