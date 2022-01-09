@@ -1,8 +1,11 @@
 import { Subjects } from "./subjects";
 
-interface ProductCreatedEvent {
+export interface ProductCreatedEvent {
   subject: Subjects.ProductCreated;
   data: {
     id: string;
+    title: string;
+    price: number;
+    userId: string;
   };
 }
