@@ -4,9 +4,6 @@ import { json } from "body-parser";
 import cookieSession from "cookie-session";
 import { NotFoundError, errorHandler, currentUser } from "@maly-ecom/common";
 
-import { createProductRouter } from "../src/routes/new";
-import { updateProductRouter } from "./routes/update";
-
 const app = express();
 app.set("trust proxy", true);
 app.use(json());
@@ -18,8 +15,6 @@ app.use(
 );
 
 app.use(currentUser);
-app.use(createProductRouter);
-app.use(updateProductRouter);
 
 app.all("*", () => {
   throw new NotFoundError();
